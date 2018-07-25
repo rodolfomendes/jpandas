@@ -3,6 +3,8 @@ package org.jpandas.base;
 import org.jpandas.api.Series;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
 
 public class ArraySeries<V> implements Series<Integer,V>{
     private V[] data;
@@ -31,5 +33,45 @@ public class ArraySeries<V> implements Series<Integer,V>{
         }
 
         return data[key];
+    }
+
+    @Override
+    public Series<Integer, V> loc(Integer label) {
+        return null;
+    }
+
+    @Override
+    public Series<Integer, V> loc(List<Integer> label) {
+        return null;
+    }
+
+    @Override
+    public Series<Integer, V> loc(boolean[] selection) {
+        return null;
+    }
+
+    @Override
+    public Series<Integer, V> loc(Function<Series<Integer, V>, ?> callable) {
+        return null;
+    }
+
+    @Override
+    public Series<Integer, V> iloc(int position) {
+        return null;
+    }
+
+    @Override
+    public Series<Integer, V> iloc(List<Integer> positions) {
+        return null;
+    }
+
+    @Override
+    public Series<Integer, V> iloc(boolean[] selection) {
+        return null;
+    }
+
+    @Override
+    public Series<Integer, V> iloc(Function<Series<Integer, V>, ?> callable) {
+        return null;
     }
 }
