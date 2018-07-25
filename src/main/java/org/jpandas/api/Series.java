@@ -30,6 +30,7 @@ public interface Series<K,V> {
 
     Series<K,V> iloc(int position);
     Series<K,V> iloc(List<Integer> positions);
+    Series<K,V> iloc(Slice slice);
     Series<K,V> iloc(boolean[] selection);
     Series<K,V> iloc(Function<Series<K,V>,?> callable);
 }
