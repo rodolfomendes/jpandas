@@ -1,10 +1,12 @@
 package org.jpandas.base;
 
 import org.jpandas.api.Series;
+import org.jpandas.api.Slice;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ArraySeries<V> implements Series<Integer,V>{
     private V[] data;
@@ -36,7 +38,7 @@ public class ArraySeries<V> implements Series<Integer,V>{
     }
 
     @Override
-    public Series<Integer, V> loc(Integer label) {
+    public V loc(Integer label) {
         return null;
     }
 
@@ -56,12 +58,22 @@ public class ArraySeries<V> implements Series<Integer,V>{
     }
 
     @Override
-    public Series<Integer, V> iloc(int position) {
-        return null;
+    public V iloc(int position) {
+        return data[position];
     }
 
     @Override
     public Series<Integer, V> iloc(List<Integer> positions) {
+        List<V> values = positions
+            .stream()
+            .map(i -> data[i])
+            .collect(Collectors.toList());
+
+        return new ArraySeries<>(values.toArray(data));
+    }
+
+    @Override
+    public Series<Integer, V> iloc(Slice slice) {
         return null;
     }
 
